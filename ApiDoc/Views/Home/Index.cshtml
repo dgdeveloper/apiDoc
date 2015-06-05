@@ -5,7 +5,29 @@
 }
 
 <h2>Index</h2>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
 
+            (function ($) {
+
+                $('#search').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                    $('.searchable').hide();
+                    $('.searchable').filter(function () {
+                        return rex.test($(this).text());
+                    }).show();
+
+                })
+
+            }(jQuery));
+
+        });
+   </script>
+
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +68,7 @@
                     <li><a href="#">Help</a></li>
                 </ul>
                 <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input id="search"  type="text" class="form-control" placeholder="Search...">
                 </form>
             </div>
         </div>
@@ -57,14 +79,14 @@
                 <ul class="nav nav-sidebar">
                     @foreach (var item in Model)
                     {
-                        <li><a href="@item.URI.Replace(Request.PhysicalApplicationPath, String.Empty)" target="dash">@item.Name</a></li>
+                        <li class="searchable"><a href="@item.URI.Replace(Request.PhysicalApplicationPath, String.Empty)" target="dashboard">@item.Name</a></li>
                     }
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">API Reference</h1>
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe name="dash" class="embed-responsive-item" scrolling="auto" src="" allowfullscreen=""></iframe>
+                    <iframe name="dashboard" class="embed-responsive-item" scrolling="auto" src="" allowfullscreen=""></iframe>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ namespace ApiDoc.Controllers
         public ActionResult Index()
         {
             List<IApiDoc> apiDocs = new List<IApiDoc>();
-            apiDocs = ApiDocReporter.LoadHtmlApiDocFromFolder(Server.MapPath("~/HTML_Report"));
+            apiDocs = ApiDocReporter.LoadHtmlApiDocFromFolder(Server.MapPath("~/ApiHtml/ApiDoc"));
             return View(apiDocs);
         }
 
