@@ -9,6 +9,14 @@ header, footer, nav, section {
     display: block;
 }
 
+.sample {
+	font-size: 13pt;
+    fo
+}
+.path {
+	font-size: 10pt; 
+	color: green;
+}
 
 /* Styles for basic forms
 -----------------------------------------------------------*/

@@ -4,27 +4,26 @@
     ViewBag.Title = "API Reference Index Page";
 }
 
-<h2>Index</h2>
 @section scripts
 {
     <script type="text/javascript">
-        $(document).ready(function () {
+        //$(document).ready(function () {
 
-            (function ($) {
+        //    (function ($) {
 
-                $('#search').keyup(function () {
+        //        $('#search').keyup(function () {
 
-                    var rex = new RegExp($(this).val(), 'i');
-                    $('.searchable').hide();
-                    $('.searchable').filter(function () {
-                        return rex.test($(this).text());
-                    }).show();
+        //            var rex = new RegExp($(this).val(), 'i');
+        //            $('.searchable').hide();
+        //            $('.searchable').filter(function () {
+        //                return rex.test($(this).text());
+        //            }).show();
 
-                })
+        //        })
 
-            }(jQuery));
+        //    }(jQuery));
 
-        });
+        //});
    </script>
 
 }
@@ -61,14 +60,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Test Engine Developer Library</a>
+                <a class="navbar-brand" href="@Url.Action("index","Home")">Test Engine Developer Library</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Help</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
-                    <input id="search"  type="text" class="form-control" placeholder="Search...">
+                <form class="navbar-form navbar-right" action="@Url.Action("Search", "Home", new { name = "searchingText" })" target="dashboard">
+                    <input id="search" name="searchingText" type="text" class="form-control" placeholder="Search...">
                 </form>
             </div>
         </div>
